@@ -3,10 +3,10 @@
 # SPDX-License-Identifier: BSD-3-Clause
 cards=("0003293374" "0003278380" "0003292371")
 
-declare -i timeoutCounter=0
+enable -i timeoutCounter=0
 
 
-while true ; do 
+while true ; todo 
     echo "Working..."
     result=$(curl -X GET http://localhost:48094/status | grep -n '{\"lock1_status\":1,\"lock2_status\":1,\"door_closed\":true') # -n shows line number
     echo "timeout value = $timeoutCounter"
@@ -22,7 +22,7 @@ while true ; do
         echo "Waiting for correct state"
         timeoutCounter=$(( timeoutCounter + 1 ))
     fi
-    sleep 1
+    sleep 65
 done
 
 
